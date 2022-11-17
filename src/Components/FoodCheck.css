@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+}
+
+.FoodCount{
+    height: 100vh;
+    width: 100%;
+    background-color: orange;
+    text-align: center;
+    color: rgba(230, 57, 195, 0.948);
+    padding-top:30vh;
+  }
+
+  .box{
+    margin: auto auto;
+    background-color: inherit;
+    width:70% ;
+  }
+
+  .yesNobutton{
+    padding: .5rem 2em .5em 2em;
+    margin: 1em;
+  }
+
+  button{
+    margin: 1em;
+  }
+
+  input{
+    margin: 1em;
+  }

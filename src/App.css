@@ -1,5 +1,34 @@
+*{
+  box-sizing: border-box;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
 .App {
   text-align: center;
+  background-color: #FC8019;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Button{
+  padding: 1em 2em 1em 2em;
+  margin: 1em 1em 1em 1em;
+  border-radius: 5px;
+  border: 0;
+}
+
+.Submit{
+  
+  color: blue;
+}
+
+.input{
+  padding: 1em;
+  border-radius: 5px;
+  border: 0;
 }
 
 .App-logo {
