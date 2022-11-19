@@ -1,7 +1,7 @@
 import React from 'react'
 import './FoodCheck.css'
 import {useState, useEffect} from 'react'
-import {db} from '../firebase'
+import {db, auth} from '../firebase'
 import SignOut from './SignOut'
 
 
@@ -36,8 +36,6 @@ function FoodCount() {
     useEffect(()=>{ 
       
     }, [response])
-    
-    
     
   return (
     <div className='FoodCount'>
