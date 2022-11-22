@@ -8,17 +8,12 @@ import { auth} from './firebase'
 import '@firebase/messaging';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 
-
-
 import React from 'react'
+import SignUp from './Components/SignUp'
 
 function App() {
   const [user] = useAuthState(auth)
 
-  useEffect(()=>{
-    // const msg = firebase.messaging();
-
-  })
 
   return (
     <div>
@@ -27,9 +22,11 @@ function App() {
       <Switch>
         <Route exact path='/' component={user ? FoodCheck : SignIn} ></Route>
         <Route exact path='/admin' component={Admin}></Route>
+        <Route exact path='/signin' component={SignIn}></Route>
+        <Route exact path='/signup' component={SignUp}></Route>
+        
       </Switch>
       </Router>
-      
     </div>
   )
 }

@@ -12,14 +12,11 @@ useEffect(()=>{
         var x = doc.docs.map(y => y.data());
         var c =0
            for(let i of x){
-               console.log(i);
                if(i.yesORno===true)
                c=c+1
            }
            setCount(c)
-           console.log('hi')
        })
-       console.log('hello')
 }, [])    
 
   return (
