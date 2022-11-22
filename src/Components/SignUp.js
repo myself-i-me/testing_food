@@ -17,14 +17,20 @@ async function signUpWIthEmail() {
     }
 
   return (
-    <div>
-      <h1>SignUp</h1>
-        <input placeholder='email' id='email' required pattern='^([\w]*[\w\.]*(?!\.)@cylogic.com)'/><br></br>
-        <input placeholder='password length shold be greater than six' id='password' required/><br></br>
+    <div className='formParent'>
+      
+      <div className='formstyle'>
+       <form onSubmit={(e)=>e.preventDefault()}>
+       <h1>SignUp</h1>
+       <input placeholder='email' id='email' required pattern='^([\w]*[\w\.]*(?!\.)@cylogic.com)'/><br></br>
+        <input placeholder='password length shold be greater than six' id='password' required minLength={6}/><br></br>
         <button onClick={signUpWIthEmail}>  SignUp</button><br></br>
         <h2>{note}</h2>
-        <NavLink to='/'><button>SignIn</button></NavLink>
-        
+       </form>
+       </div>
+       <div className='sideButton'>
+       <NavLink to='/'><button>SignIn</button></NavLink>
+       </div>
     </div>
   )
 }
