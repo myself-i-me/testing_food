@@ -18,8 +18,12 @@ function SignIn() {
         
            auth.signInWithEmailAndPassword(email, password).then(e=>{
            if(!e.user.emailVerified){
-            console.log('email not verified');
-            auth.signOut();
+            console.log('not verified')
+            // auth.signOut();
+            setEmailverification('email not verified');
+           }
+           else{
+            console.log('verified')
            }
            })
            .catch(()=>{
@@ -42,8 +46,8 @@ function SignIn() {
             </form>
             </div>
             <div className='sideButton'>
-                <h4>Don't have an account </h4>
-            <NavLink to='/signup'><button>SignUp</button></NavLink>
+                <h4>Don't have an account  <NavLink to='/signup'><button className=''>SignUp</button></NavLink></h4>
+           
             </div>
     </div>
     )

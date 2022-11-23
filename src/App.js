@@ -20,7 +20,7 @@ function App() {
       <Router>
        
       <Switch>
-        <Route exact path='/' component={user ? FoodCheck : SignIn} ></Route>
+        <Route exact path='/' component={user && user.emailVerified ? FoodCheck : SignIn} ></Route>
         <Route exact path='/admin' component={Admin}></Route>
         <Route exact path='/signin' component={SignIn}></Route>
         <Route exact path='/signup' component={SignUp}></Route>

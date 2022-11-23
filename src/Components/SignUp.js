@@ -13,6 +13,7 @@ async function signUpWIthEmail() {
         const password = document.getElementById('password').value;
         const result = await auth.createUserWithEmailAndPassword(email, password)
         await result.user.sendEmailVerification();
+        auth.signOut();
         setNote('Please verify the email and do LogIn')
     }
 
