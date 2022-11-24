@@ -22,16 +22,16 @@ async function signUpWIthEmail() {
       
       <div className='formstyle'>
        <form onSubmit={(e)=>e.preventDefault()}>
-       <h1>SignUp</h1>
-       <input placeholder='email' id='email' required pattern='^([\w]*[\w\.]*(?!\.)@cylogic.com)'/><br></br>
-        <input placeholder='password length shold be greater than six' id='password' required minLength={6}/><br></br>
-        <button onClick={signUpWIthEmail}>  SignUp</button><br></br>
+       <h1>Sign-Up</h1>
+       <input placeholder='only cylogic email' id='email' type="email" required pattern='^(.+)@cylogic(.+com)$'/><br></br>
+        <input placeholder='length > 5' id='password' required minLength={6}/><br></br>
+        <button type='submit' onClick={signUpWIthEmail} style={{backgroundColor:"rgb(32, 194, 222)", border:"0", borderRadius:"3px", padding:"8px", width:"100px"}}>  SignUp</button><br></br>
         <h2>{note}</h2>
        </form>
        </div>
        <div className='sideButton'>
-       <NavLink to='/'><button>SignIn</button></NavLink>
-       </div>
+                <p>Alredy have an account<NavLink to='/'><button className='signupbutton'>SignIn</button></NavLink></p>
+            </div>
     </div>
   )
 }

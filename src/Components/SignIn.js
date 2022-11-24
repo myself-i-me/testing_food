@@ -38,16 +38,15 @@ function SignIn() {
              
             <div className='formstyle'>
             <form onSubmit={(e)=>e.preventDefault()}>
-                <h1>SignIn</h1>
+                <h1>Sign-In</h1>
                 <input placeholder='email' id='email' required /><br></br>
                 <input placeholder='password' id='password' required minLength={6}/><br></br>
-                <button onClick={signInWithEmail}>SignIn</button><br></br>
+                <button onClick={signInWithEmail} style={{backgroundColor:"rgb(32, 194, 222)", border:"0", borderRadius:"3px", padding:"8px", width:"100px"}}>Sign in</button><br></br>
                 <h2 style={{color:"red"}}>{emailverification}</h2>
             </form>
             </div>
             <div className='sideButton'>
-                <h4>Don't have an account  <NavLink to='/signup'><button className=''>SignUp</button></NavLink></h4>
-           
+                <h4>Don't have an account<NavLink to='/signup'><button className='signupbutton'>Sign up</button></NavLink></h4>
             </div>
     </div>
     )

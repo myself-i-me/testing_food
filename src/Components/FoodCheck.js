@@ -10,19 +10,22 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 function FoodCount() {
   const [user] = useAuthState(auth)
 
-    const [response, setResponse] = useState(false)
-    const [submitted, setSubmitted] = useState('')
-
+  const [response, setResponse] = useState(false)
+  const [yescolor, setYescolor] = useState()
+  const [nocolor, setNocolor] = useState()
+  const [buttonEnable, setButtonEnable] = useState(true)
+  const [submitted, setSubmitted] = useState('')
 
     function sendResponse() {
       const time = new Date();
-      if(time.getHours()==10 && time.getMinutes()<=50){
+      console.log(time.getHours())
+      if((time.getHours()==11 && time.getMinutes()<=45) || (time.getHours()>=9 && time.getHours()<11)){
         db.collection('data').get().then((snap)=>{
           var c = 0
           snap.forEach(z=>{
             if(z.data().email==user.email) {
               c=c+1;
-              db.collection('data').doc(z.id).update({response:response})
+              db.collection('data').doc(z.id).update({response:response,responsetime:String(time.getHours())+":"+String(time.getMinutes()) })
               setSubmitted('Response submitted successfully')
               return 
             }
@@ -30,14 +33,15 @@ function FoodCount() {
           if(c==0){
             db.collection('data').add({
               response:response,
-              email:user.email
+              email:user.email,
+              responsetime:String(time.getHours())+":"+String(time.getMinutes())
             })
-            setSubmitted('Response submitted successfully')
+            setSubmitted('Response submitted successfully!')
           }
         })
       }
       else{
-        setSubmitted('Response time:10:00 AM to 10:50 AM')
+        setSubmitted('Response time:09:00 AM to 11:45 AM')
       }
       
       
@@ -46,19 +50,25 @@ function FoodCount() {
     
   return (
     <div className='FoodCount'>
-      <div className='box'>
-       <h1>Are you opting for today's lunch arranged by Cylogic?</h1><br/>
-       <button style={{}} className='yesNobutton' onClick={()=>{
-        setResponse(true)
-
-        }}>Yes</button>
-       <button className='yesNobutton' onClick={()=>setResponse(false)}>No</button><br></br>
-        {/* <input placeholder='Enter your code here' onChange={(e)=>setName(e.target.value)}></input><br></br> */}
-        <button onClick={sendResponse} style={{width:'150px', height:'30px'}}>Submit</button>
-        <div id='submitted'>{submitted}</div>
-        <SignOut/>
-    </div>
-    </div>
+    <div className='box'>
+     <h2>Would you like to have food at office today? Please confirm.</h2><br/>
+     <button className='yesNobutton' style={{border:`${yescolor} 2px solid`}} onClick={()=>{
+                    setResponse(true)
+                    setYescolor('rgba(57, 230, 218, 0.948)')
+                    setNocolor('black')
+                    setButtonEnable(false)
+                    }}>Yes</button>
+     <button className='yesNobutton' style={{border:`${nocolor} 2px solid`}} onClick={()=>{
+                    setResponse(false)
+                    setNocolor('rgba(57, 230, 218, 0.948)')
+                    setYescolor('black')
+                    setButtonEnable(false)
+      }}>No</button><br></br>
+      <button disabled={buttonEnable} onClick={sendResponse} style={{width:"120px", height:"40px"}}>Submit</button>
+      <div id='submitted'>{submitted}</div>
+      <SignOut/>
+  </div>
+  </div>
   )
 }
 

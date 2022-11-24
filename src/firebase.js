@@ -1,7 +1,9 @@
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
-import { getMessaging } from 'firebase/messaging';
+import { getMessaging, getToken, onMessage } from "firebase/messaging";
+import { initializeApp} from 'firebase/app'
+
 
 const firebaseApp = firebase.initializeApp({
     apiKey: "AIzaSyBf9DAWYBtXd2B7pXS-jyN-LV5qenreolw",
@@ -14,9 +16,12 @@ const firebaseApp = firebase.initializeApp({
   measurementId: "G-SY95GMKC2R"
 })
 
+
 const db = firebaseApp.firestore();
 const auth = firebase.auth();
-// const messaging = getMessaging(firebaseApp)
+const messaging = getMessaging(firebaseApp)
 
 
-export {db, auth};
+
+
+export {db, auth, messaging};

@@ -66,6 +66,8 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  height: 40vh;
+  width: 80%;
 
 }
 
@@ -82,16 +84,24 @@
 input{
   padding: 0.43em;
   width: 100%;
-  border: aqua 1px solid;
+  border: rgba(0, 255, 255, 0) 1px solid;
   outline: none;
   text-overflow: ellipsis;
   overflow: hidden;
+  border-radius: 3px;
 }
 
 
 .sideButton{
-  
+  color: rgb(31, 77, 228);
   margin:0 auto ;
   margin-top: 20px;
 }
 
+.signupbutton{
+  background-color: transparent;
+  outline: none;
+  overflow: hidden;
+  color: rgb(32, 194, 222);
+  border: 0;
+}

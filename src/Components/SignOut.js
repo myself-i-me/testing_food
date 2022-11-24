@@ -6,7 +6,7 @@ function SignOut() {
         <div style={{
             width: '100%', top: 0, zIndex: '10', marginTop: '5px'
         }}>
-            <button style={{ padding: '20px', fontSize: '15px', borderRadius: '0', fontWeight: '600' }} onClick={() => auth.signOut()}>Sign Out</button>
+            <button style={{ padding: '10px', fontSize: '15px', border: '0', fontWeight: '600', backgroundColor:"#e01414" }} onClick={() => auth.signOut()}>Sign Out</button>
         </div>
     )
 }
